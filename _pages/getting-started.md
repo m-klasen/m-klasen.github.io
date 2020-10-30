@@ -1,51 +1,91 @@
----
-layout: page
-title: Getting started with Reverie
-permalink: /getting-started/
----
+# Overview
 
-### Step 1) Fork Reverie to your User Repository
+Everything in this directory creates or operates on COCO Camera Traps databases, which are .json files structured as...
 
-Fork [this repository](https://github.com/amitmerchant1990/reverie), then rename the repository to `yourgithubusername.github.io`.
+## COCO Camera Traps format
 
-Alternatively, you can use [Use this template](https://github.com/amitmerchant1990/reverie/generate) button if you want to create a repository with a clean commit history which will use Reverie as a template.
+```
+{
+  "info" : info,
+  "images" : [image],
+  "categories" : [category],
+  "annotations" : [annotation]
+}
 
-Your Jekyll blog will often be viewable immediately at <https://yourgithubusername.github.io> (if it's not, you can often force it to build by completing step 2)
+info 
+{
+  # Required
+  "version" : str,
+  "description" : str,
+  
+  # Optional
+  "year" : int,
+  "contributor" : str
+  "date_created" : datetime
+}
 
-### Step 2) Customize and view your site
+image
+{
+  # Required
+  "id" : str,
+  "file_name" : str,
+  
+  # Optional
+  "width" : int,
+  "height" : int,
+  "rights_holder" : str,    
+  "datetime": datetime,  
+  "seq_id": str,
+  "seq_num_frames": int,
+  "frame_num": int,
+  "location": str,
+  "corrupt": bool
+}
 
-Enter your site name, description, avatar and many other options by editing the `_config.yml` file. You can easily turn on Google Analytics tracking, Disqus commenting and social icons here.
+category
+{
+  "id" : int,
+  "name" : str  
+}
 
-Making a change to `_config.yml` (or any file in your repository) will force GitHub Pages to rebuild your site with jekyll. Your rebuilt site will be viewable a few seconds later at <https://yourgithubusername.github.io> - if not, give it ten minutes as GitHub suggests and it'll appear soon.
-
-### Step 3) Publish your first blog post
-
-Create a new file called `/_posts/2019-2-13-Hello-World.md` to publish your first blog post. That's all you need to do to publish your first blog post! This [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) might come in handy while writing the posts.
-
-> You can add additional posts in the browser on GitHub.com too! Just hit the <kbd>Create new file</kbd> button in `/_posts/` to create new content. Just make sure to include the [front-matter](http://jekyllrb.com/docs/frontmatter/) block at the top of each new blog post and make sure the post's filename is in this format: year-month-day-title.md
-
-## Using Categories in Reverie
-
-You can categorize your content based on `categories` in Reverie. For this, you just need to add `categories` in front matter like below:
-
-For adding single category:
-
-```md
-categories: JavaScript
+annotation
+{
+  "id" : str,
+  "image_id" : str,  
+  "category_id" : int,
+  "bbox": [x,y,width,height],
+  "sequence_level_annotation" : bool,
+  "track_id",
+}
 ```
 
-For adding multiple categories:
+`seq_num_frames` is the total number of frames in the sequence that this image belongs to.
 
-```md
-categories: [PHP, Laravel]
-```
+`frame_num` specifies this frame's order in the sequence.
 
-The contegorized content can be shown over this URL: <https://yourgithubusername.github.io/categories/>
+Note that the coordinates in the `bbox` field are absolute here, different from those in the [batch processing API](api/batch_processing/README.md) output, which are relative.
 
-## RSS
+Fields listed as "optional" are intended to standardize commonly-used parameters (such as date/time information).  When present, fields should follow the above conventions.  Additional fields may be present for specific data sets.
 
-The generated [RSS feed](https://en.wikipedia.org/wiki/RSS) of your blog can be found at <https://yourgithubusername.github.io/feed>. You can see the example RSS feed over [here](https://www.amitmerchant.com/reverie/feed).
+Whenever possible, the category ID 0 is associated with a class called "empty", even if there are no empty images in a data set.  When preparing data sets, we normalize all versions of "empty" (such as "none", "Empty", "no animal", etc.) to "empty".
 
-## Sitemap
+# Contents
 
-The generated sitemap of your blog can be found at <https://yourgithubusername.github.io/sitemap>. You can see the example sitemap feed over [here](https://www.amitmerchant.com/reverie/sitemap).
+This directory is organized into the following subdirectories...
+
+## annotations
+Code for creating new bounding box annotation tasks and converting annotations to COCO Camera Traps format.
+
+## databases
+Miscellaneous tools for manipulating COCO Camera Traps .json files.  Of particular note is `sanity_check_json_db.py`, which validates that a CCT database is well-formatted, optionally checking image existence and size.
+
+**databases/classifcation**: Scripts for creating and analyzing a dataset for classification specifically.
+
+## importers
+Code for converting frequently-used metadata formats (or sometimes one-off data sets) to COCO Camera Traps .json files.
+
+## megadb
+Code for querying and updating MegaDB.
+
+## tfrecords
+Code for generating tfrecords from COCO Camera Traps .json files.  This directory is based on the [Visipedia tfrecords repo](https://github.com/visipedia/tfrecords).
