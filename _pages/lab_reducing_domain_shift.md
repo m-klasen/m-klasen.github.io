@@ -1,7 +1,7 @@
 ---
-layout: post
-title:  Reducing Domain Shift of Calgari Campinas
-categories: [HTML,Code]
+layout: page
+title: Reducing Domain Shift of Calgari Campinas
+permalink: /reducing_domain_shift/
 ---
 
 <a href="" target="_blank">PDF.</a>
