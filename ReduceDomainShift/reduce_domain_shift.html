@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- Last Published: Fri Dec 10 2021 05:48:26 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="www.matthewtancik.com" data-wf-page="5e6fb768456f961381500a5f" data-wf-site="51e0d73d83d06baa7a00000f" class="w-mod-js w-mod-ix wf-ubuntu-n3-active wf-ubuntu-n4-active wf-opensans-n3-active wf-opensans-n4-active wf-opensans-n7-active wf-varelaround-n4-active wf-roboto-n3-active wf-lato-n9-active wf-lato-n1-active wf-lato-i1-active wf-montserrat-i1-active wf-montserrat-n2-active wf-lato-n3-active wf-lato-i3-active wf-montserrat-n5-active wf-montserrat-i5-active wf-montserrat-n7-active wf-montserrat-i7-active wf-lato-n4-active wf-montserrat-n8-active wf-montserrat-i8-active wf-montserrat-n9-active wf-montserrat-i9-active wf-lato-i4-active wf-ubuntu-i3-active wf-lato-n7-active wf-ubuntu-i4-active wf-ubuntu-n5-active wf-ubuntu-i5-active wf-lato-i7-active wf-ubuntu-n7-active wf-ubuntu-i7-active wf-opensans-i3-active wf-opensans-i4-active wf-opensans-n6-active wf-opensans-i6-active wf-lato-i9-active wf-opensans-i7-active wf-opensans-n8-active wf-opensans-i8-active wf-changaone-n4-active wf-changaone-i4-active wf-montserrat-n1-active wf-roboto-n4-active wf-roboto-n5-active wf-bungeeshade-n4-active wf-montserrat-i2-active wf-montserrat-n3-active wf-montserrat-i3-active wf-montserrat-n4-active wf-montserrat-i4-active wf-montserrat-n6-active wf-montserrat-i6-active wf-active">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style>
+        .wf-force-outline-none[tabindex="-1"]:focus {
+            outline: none;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Reducing Domain Shift on the Calgary Campinas Dataset</title>
+    <meta content="A method for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views." name="description">
+    <meta content="NeRF: Neural Radiance Fields" property="og:title">
+    <meta content="A method for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views." property="og:description">
+    <meta content="http://people.eecs.berkeley.edu/~tancik/nerf/website_renders/images/nerf_graph.jpg" property="og:image">
+    <meta content="NeRF: Neural Radiance Fields" property="twitter:title">
+    <meta content="A method for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views." property="twitter:description">
+    <meta content="http://people.eecs.berkeley.edu/~tancik/nerf/website_renders/images/nerf_graph.jpg" property="twitter:image">
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="reduce_ds_cc/matthewtancik.css" rel="stylesheet" type="text/css">
+    <script src="reduce_ds_cc/ga.js"></script>
+    <script src="reduce_ds_cc/webfont.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="reduce_ds_cc/css.css" media="all">
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Changa One:400,400italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500"]
+            }
+        });
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script type="text/javascript">
+        ! function(o, c) {
+            var n = c.documentElement,
+                t = " w-mod-";
+            n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
+    <link href="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5aaddbdee8d43ceeae2f2e4c_favicon-32x32.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://y7v4p6k4.ssl.hwcdn.net/51db7fcf29a6f36b2a000001/51e06d302f5394c87600002a_webclip-comet.png" rel="apple-touch-icon">
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-46779055-1'], ['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script');
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <style>
+        .wf-loading * {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section hero nerf-_v2 wf-section">
+        <div class="container-2 nerf_header_v2 w-container">
+            <h1 class="nerf_title_v2">Reducing Domain Shift on the Calgary Campinas Dataset</h1>
+            <h1 class="nerf_subheader_v2">Master Lab</h1>
+            <div class="nerf_authors_list_single w-row">
+                <div class="w-col"><a href="https://morris-klasen.de" target="_blank" class="nerf_authors_v2">Morris Klasen<span class="text-span_nerf_star">*</span><span
+              class="superscript text-span_nerf">1*</span></a></div>
+            </div>
+            <div class="nerf_authors_list_single nerf_authors_affiliation w-row">
+                <div class="w-col">
+                    <h1 class="nerf_affiliation_v2">University Bonn</h1>
+                </div>
+            </div>
+        </div>
+        <div class="link_column_nerf_v2 w-row">
+            <div class="w-col w-col-6">
+                <a href="data/report.pdf">
+                    <img src="reduce_ds_cc/5cab99df4998decfbf9e218e_paper-01.png" height="60px" width="60px">
+                </a>
+            </div>
+            <div class="w-col w-col-5">
+                <a href="https://github.com/m-klasen/lab_med_viz" target="_blank" class="link-block w-inline-block"><img src="reduce_ds_cc/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e666.png" alt="paper" width="80px" class="paper_img image-8 github_icon_nerf_v2"></a>
+            </div>
+        </div>
+        <div class="paper_code_nerf w-row">
+            <div class="w-col w-col-6 w-col-small-4">
+                <div class="text-block-2"><strong class="bold-text-nerf_v2">Report</strong></div>
+            </div>
+            <div class="w-col w-col-5 w-col-small-4">
+                <div class="text-block-2"><strong class="bold-text-nerf_v2">&lt;/Code&gt;</strong></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="white_section_nerf wf-section">
+        <div class="w-container">
+            <h2 class="grey-heading_nerf">Abstract</h2>
+            <p class="paragraph-3 nerf_text nerf_results_text">Convolutional Neural Nets performance can be very susceptible to intensity variations of MRI scans. These variations, induced by different MRI-scanner manufacturers and scanning protocols, can result in significant reductions in segmentation
+                quality. Many recently proposed domain adaptation methods attempt to minimize the domain shift by intelligently fine-tuning specific domains to overcome segmentation quality shortcomings. In this context, we evaluate the existing SpotTUNet
+                domain adaptation method and its generalization capacities under stronger regularization by introducing intensity and geometric transformations. Further, we present our own optimized training procedure that reduces the domain shift through
+                simple unsupervised model regularization from 37.8% to 9.3% surface Dice score. We minimize the performance reduction on unseen scanners further to 2.8% using a multi-level intensity and geometry-based augmentation pipeline. And lastly,
+                we propose a multi-orientation ensemble reducing the average domain shift to only 1.5%. We show, that our combination of methods yields an unsupervised domain adaptation system that almost eliminates domain shift and therefore avoids the
+                need for any costly scanner-specific annotations that prior methods proposed to use.</p>
+
+        </div>
+    </div>
+    </div>
+
+    <div class="white_section_nerf wf-section">
+        <div class="w-container">
+            <h2 class="grey-heading_nerf">Highlights</h2>
+            <p>Table: Configurations and hyper-parameters used for training. We compare the existing baseline with our own implementations.</p>
+            <img src="reduce_ds_cc/data/config_table.png" class="" alt="Scan" width="800px">
+        </div>
+        <br><br>
+        <div class="w-container">
+            <div class="w-col w-col-6">
+                <h4>Multi View Ensemble</h4>
+                <p>Multi View Ensemble Finally, we want to address the compromise we made by break- ing up the full 3D MRI scans into individual 2D slices. The rea- son for this was a multitude of issues concerning increased model complexity of 3D CNNs,
+                    GPU memory constraints and general model convergence due to reduced numbers of total samples. Using a slice-wise 2D U-Net approach, however, removes a lot of context information contained in neighbouring slices and the model only sees
+                    a fraction of the overall 3D brain structure at a time. We propose a new multi-orientation ensemble method to address the issue (Fig. 5). As training is done on a specific but fixed volume orientation, we only ever get neighbourhood
+                    information along one axis. If we, however, train one model on each axis orientation, we can combine the models by registering them to the same axis orien- tation and averaging the prediction logits. By ensembling the three- axis orientation
+                    models we reintroduce a weak approximation of the full 3D neighbourhood for each pixel in the volume.</p>
+            </div>
+            <div class="w-col w-col-5">
+                <img src="reduce_ds_cc/data/view_ensemble.png" class="" alt="Scan" width="750px">
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="w-container">
+            <div class="w-col w-col-6">
+                <h4>Summary</h3>
+                    <p>
+                        Overall we managed to reduce the domain-shift using unsupervised domain adaptation, mostly through better optimization and regularization, from initially close to 40% SDice score between source and targets to a staggering 1.5% difference. This can also
+                        be seen very easily in the Figure below, showing the five major architec- ture configuration we evaluated here.
+                    </p>
+            </div>
+            <div class="w-col w-col-5">
+                <img src="reduce_ds_cc/data/summary.png" class="" alt="Scan" width="750px">
+                <p>Table: In summary we can plot the major configurations we evaluated here, showing us the significant domain shift reductions improvement made.</p>
+            </div>
+
+        </div>
+        <div class="w-container">
+            <img src="reduce_ds_cc/data/scan.png" class="" alt="Scan" width="150px">
+            <img src="reduce_ds_cc/data/baseline.png" class="" alt="Scan" width="150px">
+            <img src="reduce_ds_cc/data/baseline_aug.png" class="" alt="Scan" width="150px">
+            <img src="reduce_ds_cc/data/adam_baseline.png" class="" alt="Scan" width="150px">
+            <img src="reduce_ds_cc/data/adam_baseline_aug.png" class="" alt="Scan" width="150px">
+            <img src="reduce_ds_cc/data/adam_moe.png" class="" alt="Scan" width="150px">
+        </div>
+
+
+
+    </div>
+
+    <script src="reduce_ds_cc/jquery-3.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="reduce_ds_cc/webflow.js" type="text/javascript"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+
+</html>
