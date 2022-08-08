@@ -57,9 +57,85 @@
             opacity: 0;
         }
     </style>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+        
+        ng\:form {
+            display: block;
+        }
+        
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+        
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- base href="http://people.csail.mit.edu/gharbi/home/" -->
+
+    <title>Morris Klasen | Home</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <link rel="apple-touch-icon" href="http://people.csail.mit.edu/gharbi/home/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="../home/a_data/bootstrap.css">
+    <link rel="stylesheet" href="../home/a_data/font-awesome.css">
+    <link rel="stylesheet" href="../home/a_data/bootstrap_002.css">
+
+    <!-- <script src="js/vendor/modernizr&#45;2.8.3.min.js"></script> -->
+    <script src="../home/a_data/jquery.js"></script>
+    <script src="../home/a_data/bootstrap.js"></script>
+    <script src="../home/a_data/angular.js"></script>
+    <script src="../home/a_data/angular-route.js"></script>
+    <script src="../home/a_data/angular-strap.js"></script>
+    <script src="../home/a_data/angular-strap_002.js"></script>
+
+    <script src="../home/a_data/services.js"></script>
+    <script src="../home/a_data/app.js"></script>
+    <script src="../home/a_data/main.js"></script>
 </head>
 
 <body>
+    <nav class="navbar navbar-default" role="navigation" bs-navbar="">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://morris-klasen.de">Morris Klasen</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li data-match-route="/bio"><a href="#/home/index.html">Home<span class="sr-only">(current)</span></a></li>
+                    <li data-match-route="/$"><a href="http://morris-klasen.de/home/data/resume.pdf">Resume<span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
     <div class="section hero nerf-_v2 wf-section">
         <div class="container-2 nerf_header_v2 w-container">
             <h1 class="nerf_title_v2">Reducing Domain Shift on the Calgary Campinas Dataset</h1>
@@ -73,25 +149,26 @@
                     <h1 class="nerf_affiliation_v2">University Bonn</h1>
                 </div>
             </div>
+            <div class="link_column_nerf_v2 w-row">
+                <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+                    <a href="report.pdf">
+                        <img src="reduce_ds_cc/5cab99df4998decfbf9e218e_paper-01.png" height="60px" width="60px">
+                    </a>
+                </div>
+                <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+                    <a href="https://github.com/m-klasen/lab_med_viz" target="_blank" class="link-block w-inline-block"><img src="reduce_ds_cc/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e666.png" alt="paper" width="80px" class="paper_img image-8 github_icon_nerf_v2"></a>
+                </div>
+            </div>
+            <div class="paper_code_nerf w-row">
+                <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+                    <div class="text-block-2"><strong class="bold-text-nerf_v2">Report</strong></div>
+                </div>
+                <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+                    <div class="text-block-2"><strong class="bold-text-nerf_v2">&lt;/Code&gt;</strong></div>
+                </div>
+            </div>
         </div>
-        <div class="link_column_nerf_v2 w-row">
-            <div class="w-col w-col-6">
-                <a href="report.pdf">
-                    <img src="reduce_ds_cc/5cab99df4998decfbf9e218e_paper-01.png" height="60px" width="60px">
-                </a>
-            </div>
-            <div class="w-col w-col-5">
-                <a href="https://github.com/m-klasen/lab_med_viz" target="_blank" class="link-block w-inline-block"><img src="reduce_ds_cc/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e666.png" alt="paper" width="80px" class="paper_img image-8 github_icon_nerf_v2"></a>
-            </div>
-        </div>
-        <div class="paper_code_nerf w-row">
-            <div class="w-col w-col-6 w-col-small-4">
-                <div class="text-block-2"><strong class="bold-text-nerf_v2">Report</strong></div>
-            </div>
-            <div class="w-col w-col-5 w-col-small-4">
-                <div class="text-block-2"><strong class="bold-text-nerf_v2">&lt;/Code&gt;</strong></div>
-            </div>
-        </div>
+
 
     </div>
     <div class="white_section_nerf wf-section">
